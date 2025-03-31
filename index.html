@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניתוח נתונים מגניב 📊✨</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            --secondary-gradient: linear-gradient(135deg, #45b7d1, #96c93d);
+            --highlight-color: #ffcc00;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: headerBounce 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--secondary-gradient);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            color: var(--highlight-color);
+        }
+
+        .section {
+            background-color: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: popIn 0.7s ease-out;
+        }
+
+        h2 {
+            color: #ff6b6b;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tableau-container {
+            width: 100%;
+            min-height: 500px;
+            margin: 1.5rem 0;
+            border: 3px dashed #45b7d1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0faff;
+        }
+
+        .tableau-highlight {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .tableau-link {
+            color: var(--highlight-color);
+            text-decoration: underline;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tableau-link:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+            display: inline-block;
+        }
+
+        .movies-info {
+            background: linear-gradient(135deg, #fff0f0, #f0faff);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .movies-info ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .movies-info li {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 15px 15px 0 0;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes headerBounce {
+            0% { transform: translateY(-20px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .section, header, .tableau-highlight { animation: none; }
+        }
+
+        :focus {
+            outline: 3px solid var(--highlight-color);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; text-align: center; }
+            h1 { font-size: 2rem; }
+            .section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>נתונים זה כיף! 📈🎉</h1>
+            <p>גלה תובנות מדהימות עם Tableau 🌟</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#dashboard">לוח בקרה 🖥️</a></li>
+                <li><a href="#kpi">מדדים ⚡</a></li>
+                <li><a href="#trends">מגמות 📅</a></li>
+                <li><a href="#details">תובנות 🔍</a></li>
+                <li><a href="#movies">סרטים 🎬</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="dashboard" class="section">
+            <h2>לוח בקרה ראשי 🎯</h2>
+            <div class="tableau-highlight">
+                <p>צפה בנתונים המלאים כאן: 
+                    <a href="https://public.tableau.com/views/Book1_17434319486570/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" 
+                       target="_blank" 
+                       class="tableau-link">קישור ל-Tableau 🚀</a>
+                </p>
+            </div>
+            <div class="tableau-container" 
+                 role="region" 
+                 aria-label="לוח בקרה ראשי של Tableau">
+                <div id="tableauViz1"></div>
+            </div>
+        </section>
+
+        <section id="kpi" class="section">
+            <h2>מדדי ביצוע מפתח (KPI) 🌟</h2>
+            <div class="tableau-container"
+                 role="region"
+                 aria-label="מדדי ביצוע מפתח של Tableau">
+                <div id="tableauViz2"></div>
+            </div>
+        </section>
+
+        <section id="trends" class="section">
+            <h2>ניתוח מגמות 📊</h2>
+            <div class="tableau-container"
+                 role="region"
+                 aria-label="ניתוח מגמות של Tableau">
+                <div id="tableauViz3"></div>
+            </div>
+        </section>
+
+        <section id="details" class="section">
+            <h2>פרטים ותובנות 🧠</h2>
+            <div class="tableau-container"
+                 role="region"
+                 aria-label="פרטים ותובנות של Tableau">
+                <div id="tableauViz4"></div>
+            </div>
+        </section>
+
+        <section id="movies" class="section movies-info">
+            <h2>על הסרטים ומה הם נותנים לנו 🎬🍿</h2>
+            <p>הנתונים שלנו כוללים מידע על סרטים, והנה כמה יתרונות מדליקים שהם מביאים:</p>
+            <ul>
+                <li>🎥 <strong>בידור:</strong> סרטים הם דרך מעולה להירגע וליהנות!</li>
+                <li>🧠 <strong>למידה:</strong> הם מלמדים אותנו על תרבויות, היסטוריה ורגשות.</li>
+                <li>💡 <strong>השראה:</strong> סיפורים מרגשים שדוחפים אותנו לחלום בגדול.</li>
+                <li>🤝 <strong>חיבור:</strong> צפייה משותפת מחברת בין אנשים.</li>
+                <li>🎨 <strong>יצירתיות:</strong> עיצוב, מוזיקה וצילום שמעוררים את הדמיון!</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 ניתוח נתונים מגניב | נבנה על ידי xAI 🤖✨</p>
+    </footer>
+
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+        function initViz() {
+            const options = {
+                width: '100%',
+                height: '500px',
+                hideTabs: true,
+                hideToolbar: true,
+                onFirstInteractive: () => {
+                    console.log('Tableau is ready to rock! 🎸');
+                }
+            };
+
+            const dashboardUrl = 'https://public.tableau.com/views/Book1_17434319486570/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link';
+
+            const vizUrls = [
+                dashboardUrl, // לוח בקרה ראשי
+                dashboardUrl, // מדדי ביצוע (דוגמה - החלף בקישור אחר אם יש)
+                dashboardUrl, // ניתוח מגמות (דוגמה - החלף בקישור אחר אם יש)
+                dashboardUrl  // פרטים ותובנות (דוגמה - החלף בקישור אחר אם יש)
+            ];
+
+            const containers = [
+                document.getElementById('tableauViz1'),
+                document.getElementById('tableauViz2'),
+                document.getElementById('tableauViz3'),
+                document.getElementById('tableauViz4')
+            ];
+
+            containers.forEach((container, index) => {
+                new tableau.Viz(container, vizUrls[index], options);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initViz);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const tableauLink = document.querySelector('.tableau-link');
+        tableauLink.addEventListener('mouseover', () => {
+            tableauLink.style.transform = 'scale(1.1)';
+        });
+        tableauLink.addEventListener('mouseout', () => {
+            tableauLink.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
